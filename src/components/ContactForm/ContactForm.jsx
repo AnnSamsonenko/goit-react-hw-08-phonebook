@@ -1,6 +1,5 @@
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import 'yup-phone';
 import { useAddContactMutation } from 'redux/contactsApi';
 import { Button } from 'components/Button/Button';
 import { FormStyled, Input, Message, LabelStyled } from './ContactFormStyled';
@@ -36,7 +35,7 @@ const FormError = ({ name }) => {
 export const ContactForm = () => {
   const [addContact] = useAddContactMutation();
   const { data: contacts } = useGetContactsQuery();
-  console.log('what');
+
   const handleSubmit = async ({ name, phone }, { resetForm }) => {
     const contactObj = { name, phone };
     console.log(contactObj);
