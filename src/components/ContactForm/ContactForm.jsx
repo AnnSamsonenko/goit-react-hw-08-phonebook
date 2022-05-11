@@ -36,7 +36,7 @@ const FormError = ({ name }) => {
 export const ContactForm = () => {
   const [addContact] = useAddContactMutation();
   const { data: contacts } = useGetContactsQuery();
-
+  console.log('what');
   const handleSubmit = async ({ name, phone }, { resetForm }) => {
     const contactObj = { name, phone };
     console.log(contactObj);
