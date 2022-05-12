@@ -1,17 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelectors } from 'redux/auth/authSelectors';
 import { authOperations } from 'redux/auth/authOperations';
+import { Button } from 'components/Button/Button';
+import { UserNavWrapper, UserNavHello } from './UserNavStyled';
 
 export const UserNav = () => {
   const dispatch = useDispatch();
   const name = useSelector(authSelectors.getUserName);
-  console.log(name, 'name in usernav');
+
   return (
-    <div>
-      <span>Hello, {name}</span>
-      <button type="button" onClick={() => dispatch(authOperations.logOut())}>
-        Log Out
-      </button>
-    </div>
+    <UserNavWrapper>
+      <UserNavHello>Hello, {name}</UserNavHello>
+      <Button
+        type="button"
+        onClick={() => dispatch(authOperations.logOut())}
+        text={'Log Out'}
+      />
+    </UserNavWrapper>
   );
 };

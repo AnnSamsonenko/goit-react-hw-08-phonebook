@@ -6,9 +6,10 @@ import {
   FormStyled,
   Input,
   LabelStyled,
+  InputWrapper,
 } from 'components/ContactForm/ContactFormStyled';
 import { authOperations } from 'redux/auth/authOperations';
-import { Container } from 'components/AppStyled';
+import { Container, Section } from 'components/AppStyled';
 
 const initialValues = {
   name: '',
@@ -26,31 +27,33 @@ export const Register = () => {
   };
 
   return (
-    <Container>
-      <Title>Registration Page</Title>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <FormStyled autoComplete="off">
-          <div>
-            <LabelStyled htmlFor="name">Name</LabelStyled>
-            <div>
-              <Input name="name" type="text" required />
-            </div>
-          </div>
-          <div>
-            <LabelStyled htmlFor="email">Email</LabelStyled>
-            <div>
-              <Input name="email" type="email" required />
-            </div>
-          </div>
-          <div>
-            <LabelStyled htmlFor="password">Password</LabelStyled>
-            <div>
-              <Input name="password" type="password" required />
-            </div>
-          </div>
-          <Button type="submit" text={'Confirm'} />
-        </FormStyled>
-      </Formik>
-    </Container>
+    <Section>
+      <Container>
+        <Title>Registration Page</Title>
+        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+          <FormStyled autoComplete="off">
+            <InputWrapper>
+              <LabelStyled htmlFor="name">Name</LabelStyled>
+              <div>
+                <Input name="name" type="text" required />
+              </div>
+            </InputWrapper>
+            <InputWrapper>
+              <LabelStyled htmlFor="email">Email</LabelStyled>
+              <div>
+                <Input name="email" type="email" required />
+              </div>
+            </InputWrapper>
+            <InputWrapper>
+              <LabelStyled htmlFor="password">Password</LabelStyled>
+              <div>
+                <Input name="password" type="password" required />
+              </div>
+            </InputWrapper>
+            <Button type="submit" text={'Confirm'} />
+          </FormStyled>
+        </Formik>
+      </Container>
+    </Section>
   );
 };

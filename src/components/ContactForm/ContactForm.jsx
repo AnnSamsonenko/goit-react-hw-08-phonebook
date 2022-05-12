@@ -72,7 +72,7 @@ export const ContactForm = () => {
             <FormError name="number" />
           </div>
         </div>
-        <Button type="submit" text={'Add contact'} />
+        <Button type="submit" text={'Confirm'} />
       </FormStyled>
     </Formik>
   );
