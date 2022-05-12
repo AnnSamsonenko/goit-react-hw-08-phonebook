@@ -4,6 +4,7 @@ import {
   SubTitle,
   Section,
   SectionWrapper,
+  BoxWrapper,
 } from 'components/AppStyled';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
@@ -14,15 +15,15 @@ export const Phonebook = () => {
     <Section>
       <Container>
         <SectionWrapper>
-          <div>
+          <BoxWrapper>
             <Title>Add Contact</Title>
             <ContactForm />
-          </div>
-          <div>
+          </BoxWrapper>
+          <BoxWrapper>
             <SubTitle>Contacts</SubTitle>
             <Filter />
             <ContactList />
-          </div>
+          </BoxWrapper>
         </SectionWrapper>
       </Container>
     </Section>

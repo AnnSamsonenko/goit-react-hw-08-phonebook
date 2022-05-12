@@ -2,7 +2,13 @@ import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { useAddContactMutation } from 'redux/contactsApi';
 import { Button } from 'components/Button/Button';
-import { FormStyled, Input, Message, LabelStyled } from './ContactFormStyled';
+import {
+  FormStyled,
+  Input,
+  Message,
+  LabelStyled,
+  InputWrapper,
+} from './ContactFormStyled';
 import { useGetContactsQuery } from 'redux/contactsApi';
 const phoneRegExp =
   /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
@@ -58,20 +64,20 @@ export const ContactForm = () => {
       onSubmit={handleSubmit}
     >
       <FormStyled autoComplete="off">
-        <div>
+        <InputWrapper>
           <LabelStyled htmlFor="name">Name</LabelStyled>
           <div>
             <Input name="name" type="text" />
             <FormError name="name" />
           </div>
-        </div>
-        <div>
+        </InputWrapper>
+        <InputWrapper>
           <LabelStyled htmlFor="number">Phone</LabelStyled>
           <div>
             <Input name="number" type="tel" />
             <FormError name="number" />
           </div>
-        </div>
+        </InputWrapper>
         <Button type="submit" text={'Confirm'} />
       </FormStyled>
     </Formik>

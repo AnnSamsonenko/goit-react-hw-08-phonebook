@@ -16,6 +16,10 @@ export const SectionWrapper = styled.div`
   justify-content: space-around;
 `;
 
+export const BoxWrapper = styled.div`
+  text-align: start;
+`;
+
 export const HeroTitle = styled.h1`
   font-family: ${props => props.theme.fonts.secondary};
   ${font({ fs: 34, fw: 600, lh: 38 })};
@@ -36,7 +40,6 @@ export const SubTitle = styled.h3`
   font-family: ${props => props.theme.fonts.secondary};
   ${font({ fs: 24, fw: 600, lh: 28 })};
   margin-bottom: ${props => props.theme.spacing(3)};
-  /* margin-top: ${props => props.theme.spacing(4)}; */
   color: ${props => props.theme.colors.secondaryText};
   text-shadow: 1px 1px 0 ${props => props.theme.colors.white};
 `;
