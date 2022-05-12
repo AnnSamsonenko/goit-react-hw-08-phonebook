@@ -9,7 +9,7 @@ const phoneRegExp =
 
 const validationSchema = yup.object({
   name: yup.string().required('required field'),
-  phone: yup
+  number: yup
     .string()
     .required('required field')
     .matches(phoneRegExp, 'phone number is not valid')
@@ -19,7 +19,7 @@ const validationSchema = yup.object({
 
 const initialValues = {
   name: '',
-  phone: '',
+  number: '',
   filter: '',
 };
 
@@ -36,9 +36,8 @@ export const ContactForm = () => {
   const [addContact] = useAddContactMutation();
   const { data: contacts } = useGetContactsQuery();
 
-  const handleSubmit = async ({ name, phone }, { resetForm }) => {
-    const contactObj = { name, phone };
-    console.log(contactObj);
+  const handleSubmit = async ({ name, number }, { resetForm }) => {
+    const contactObj = { name, number };
 
     const isNameInContacts = contacts?.find(
       contact => contact.name.toLowerCase() === name.toLowerCase()
@@ -67,10 +66,10 @@ export const ContactForm = () => {
           </div>
         </div>
         <div>
-          <LabelStyled htmlFor="phone">Number</LabelStyled>
+          <LabelStyled htmlFor="number">Phone</LabelStyled>
           <div>
-            <Input name="phone" type="tel" />
-            <FormError name="phone" />
+            <Input name="number" type="tel" />
+            <FormError name="number" />
           </div>
         </div>
         <Button type="submit" text={'Add contact'} />

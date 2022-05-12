@@ -2,11 +2,11 @@ import { List } from './ContactListStyled';
 import { ContactsItem } from 'components/ContactsItem/ContactsItem';
 import { useSelector } from 'react-redux';
 import { useGetContactsQuery } from 'redux/contactsApi';
+import { TextContent } from 'components/AppStyled';
 
 export const ContactList = () => {
   const { data: contacts, error } = useGetContactsQuery();
   const filter = useSelector(state => state.filter.value);
-
   const getFiltredContacts = () => {
     return filter
       ? contacts?.filter(({ name }) =>
@@ -26,10 +26,10 @@ export const ContactList = () => {
             <ContactsItem key={contact.id} contact={contact} />
           ))}
       </List>
-      {error && contacts?.length === 0 && (
-        <p>Something went wrong. Please refresh the page</p>
+
+      {contacts?.length === 0 && (
+        <TextContent>Your phonebook is empty</TextContent>
       )}
-      {error?.status === 404 && <p>Your phonebook is empty</p>}
     </>
   );
 };
